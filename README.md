@@ -1,6 +1,9 @@
 ## m-search-component-vue
 
-基于 **Vue 2 + Element UI** 的搜索输入组件。
+基于 **Vue 2 + Element UI** 的小型组件库，目前包含：
+
+- `MSearch`：搜索输入组件
+- `MTag`：标签组件
 
 ### 安装
 
@@ -19,12 +22,14 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import MSearch from 'm-search-component-vue'
+import MSearch, { MTag } from 'm-search-component-vue'
 import 'm-search-component-vue/dist/m-search-component-vue.css'
 
 Vue.use(ElementUI)
 
+// 全局注册
 Vue.component('MSearch', MSearch)
+Vue.component('MTag', MTag)
 
 new Vue({
   render: h => h(App)
@@ -43,6 +48,12 @@ new Vue({
       placeholder="请输入关键字"
       @search="handleSearch"
     />
+
+    <div style="margin-top: 16px;">
+      <MTag color="#409EFF" size="small">默认</MTag>
+      <MTag color="#67C23A" size="medium">成功</MTag>
+      <MTag color="#F56C6C" size="large">错误</MTag>
+    </div>
   </div>
 </template>
 
@@ -61,11 +72,11 @@ export default {
 > 也可以在单个组件中按需注册：
 >
 > ```js
-> import MSearch from 'm-search-component-vue'
+> import MSearch, { MTag } from 'm-search-component-vue'
 > import 'm-search-component-vue/dist/m-search-component-vue.css'
 >
 > export default {
->   components: { MSearch }
+>   components: { MSearch, MTag }
 > }
 > ```
 
@@ -150,6 +161,8 @@ export default {
 
 ### API 说明
 
+#### `MSearch`
+
 - **props**
   - **`width`**: `Number | String`，搜索输入框宽度，默认 `298`（内部会加 `px`）。
   - **`ml`**: `Number | String`，左外边距，默认 `10`（`px`）。
@@ -159,4 +172,13 @@ export default {
 - **events**
   - **`search`**：当输入内容变化时触发，回调参数为当前关键字字符串。
 
-> 注意：组件内部使用的是 Element UI 的 `<el-input>`，请确保项目中已经正确安装并引入 Element UI。
+> 注意：`MSearch` 内部使用的是 Element UI 的 `<el-input>`，请确保项目中已经正确安装并引入 Element UI。
+
+#### `MTag`
+
+- **props**
+  - **`color`**: `String`，标签背景色，例如 `'#409EFF'`、`'red'`、`'rgba(64,158,255,.1)'`，默认 `'#409EFF'`。
+  - **`size`**: `String`，标签尺寸，`'small' | 'medium' | 'large'`，默认 `'medium'`。
+
+- **slots**
+  - 默认插槽：标签内容文本或任意自定义内容。

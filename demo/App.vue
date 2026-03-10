@@ -7,16 +7,24 @@
       :width="300"
     />
     <p>当前搜索词: {{ keyword }}</p>
+
+    <h2 style="margin-top: 24px;">MTag 组件预览</h2>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <MTag color="#409EFF" size="small">默认</MTag>
+      <MTag color="#67C23A" size="medium">成功</MTag>
+      <MTag color="#F56C6C" size="large">错误</MTag>
+    </div>
   </div>
 </template>
 
 <script>
 // 直接引用 src 中的组件（支持热更新！）
 import MSearch from '../src/MSearch.vue'
+import MTag from '../src/MTag.vue'
 
 export default {
   name: 'App',
-  components: { MSearch },
+  components: { MSearch, MTag },
   data() {
     return {
       keyword: ''
