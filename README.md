@@ -168,9 +168,13 @@ export default {
   - **`ml`**: `Number | String`，左外边距，默认 `10`（`px`）。
   - **`mr`**: `Number | String`，右外边距，默认 `10`（`px`）。
   - **`placeholder`**: `String`，输入框占位文本，默认空字符串。
+  - **`value`**: `String`，输入框当前值，支持 `v-model`。
+  - **`debounce`**: `Number`，搜索事件的防抖时间（毫秒），默认 `0`（不防抖）。
+  - **`immediateOnEnter`**: `Boolean`，是否在按下回车时立即触发一次搜索，默认 `true`。
 
 - **events**
-  - **`search`**：当输入内容变化时触发，回调参数为当前关键字字符串。
+  - **`search`**：根据 `debounce` 或回车触发，回调参数为当前关键字字符串。
+  - **`input`**：用于 `v-model` 双向绑定，参数为当前输入值。
 
 > 注意：`MSearch` 内部使用的是 Element UI 的 `<el-input>`，请确保项目中已经正确安装并引入 Element UI。
 
@@ -179,6 +183,10 @@ export default {
 - **props**
   - **`color`**: `String`，标签背景色，例如 `'#409EFF'`、`'red'`、`'rgba(64,158,255,.1)'`，默认 `'#409EFF'`。
   - **`size`**: `String`，标签尺寸，`'small' | 'medium' | 'large'`，默认 `'medium'`。
+  - **`closable`**: `Boolean`，是否显示关闭按钮，默认 `false`。
 
 - **slots**
   - 默认插槽：标签内容文本或任意自定义内容。
+
+- **events**
+  - **`close`**：当点击关闭按钮时触发。

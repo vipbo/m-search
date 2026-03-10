@@ -1,6 +1,11 @@
 <template>
   <span class="m-tag" :style="tagStyle">
     <slot />
+    <i
+      v-if="closable"
+      class="m-tag__close el-icon-close"
+      @click.stop="handleClose"
+    />
   </span>
 </template>
 
@@ -17,6 +22,11 @@ export default {
     size: {
       type: String,
       default: 'medium'
+    },
+    // 是否可关闭
+    closable: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -53,6 +63,11 @@ export default {
         'font-size': '13px'
       }
     }
+  },
+  methods: {
+    handleClose() {
+      this.$emit('close')
+    }
   }
 }
 </script>
@@ -60,6 +75,14 @@ export default {
 <style scoped lang="scss">
 .m-tag {
   font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+}
+
+.m-tag__close {
+  margin-left: 4px;
+  font-size: 12px;
+  cursor: pointer;
 }
 </style>
 

@@ -1,6 +1,6 @@
 {
   "name": "m-search-component-vue",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A search input component for Vue 2 with Element UI",
   "main": "dist/m-search-component-vue.umd.js",
   "module": "dist/m-search-component-vue.es.js",
