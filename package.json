@@ -1,9 +1,9 @@
 {
-  "name": "m-search-component-vue2",
+  "name": "m-search-component-vue",
   "version": "1.0.0",
   "description": "A search input component for Vue 2 with Element UI",
-  "main": "dist/m-search-component-vue2.umd.js",
-  "module": "dist/m-search-component-vue2.es.js",
+  "main": "dist/m-search-component-vue.umd.js",
+  "module": "dist/m-search-component-vue.es.js",
   "files": [
     "dist"
   ],
@@ -48,6 +48,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourname/m-search-component-vue2.git"
+    "url": "https://github.com/vipbo/m-search/blob/master/README.md"
   }
 }
